@@ -18,7 +18,37 @@
   <title>Frontend Mentor | Contact form</title>
 </head>
 
-<body>
+<body class="font-Karla bg-Green200lighter min-h-screen flex flex-col justify-center items-center">
+  <main class="bg-White mx-[30px] flex flex-col md:w-[730px] md:max-h-[770px] rounded-lg p-12">
+    <header>
+      <h1 class="mb-8 font-bold md:text-4xl">Contact Us</h1>
+    </header>
+    <form>
+      <div class="flex md:flex-row flex-col mb-7">
+        <div class="flex flex-col w-full md:w-1/2 md:mr-4">
+          <label class="mb-2">
+            First Name
+            <span class="text-Green600medium ml-1">*</span>
+          </label>
+          <input type="text" class="border-Grey500medium border-[1px] rounded-lg py-2 px-1 w-100">
+        </div>
+        <div class="flex flex-col w-full md:w-1/2 md:ml-4 md:mt-0 mt-7">
+          <label class="mb-2">
+            Last Name
+            <span class="text-Green600medium ml-1">*</span>
+          </label>
+          <input type="text" class="border-Grey500medium border-[1px] rounded-lg py-2 px-1 w-100">
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2">
+          Email Address
+          <span class="text-Green600medium ml-1">*</span>
+        </label>
+        <input type="text" class="border-Grey500medium border-[1px] rounded-lg py-2 px-1 w-100">
+      </div>
+    </form>
+  </main>
 
   Contact Us
 
