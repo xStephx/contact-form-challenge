@@ -19,7 +19,16 @@
 </head>
 
 <body class="font-Karla bg-Green200lighter min-h-screen flex flex-col justify-center items-center">
-  <main class="bg-White mx-[30px] my-[30px] flex flex-col md:w-[730px] md:max-h-[770px] rounded-lg p-12">
+  <div id="submitted" class="hidden bg-Grey900darker p-6 rounded-xl mx-[50px] mt-[30px]">
+    <div class="flex flex-row my-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none" viewBox="0 0 20 21">
+        <path fill="#fff" d="M14.28 7.72a.748.748 0 0 1 0 1.06l-5.25 5.25a.748.748 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 4.72-4.72a.75.75 0 0 1 1.06 0Zm5.47 2.78A9.75 9.75 0 1 1 10 .75a9.76 9.76 0 0 1 9.75 9.75Zm-1.5 0A8.25 8.25 0 1 0 10 18.75a8.26 8.26 0 0 0 8.25-8.25Z"/>
+      </svg>
+      <span class="ml-2 text-White">Message Sent!</span>
+    </div>
+    <p class="text-Grey500medium text-sm">Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+  <main id="main" class="bg-White mx-[30px] mt-[30px] mb-[30px] flex flex-col md:w-[730px] md:max-h-[770px] rounded-lg p-12">
     <header>
       <h1 class="mb-8 font-bold md:text-4xl">Contact Us</h1>
     </header>
@@ -31,6 +40,7 @@
             <span class="text-Green600medium ml-1">*</span>
           </label>
           <input type="text" id="first-name" class="rounded-lg py-2 px-1 w-100 outline outline-1 outline-Grey500medium hover:outline-Green600medium has-[:checked]:outline-Green600medium has-[:checked]:bg-Green200lighter">
+          <span id="error-first-name" class="hidden text-Red text-sm mt-1">This field is required</span>
         </div>
         <div class="flex flex-col w-full md:w-1/2 md:ml-4 md:mt-0 mt-7">
           <label class="mb-2">
@@ -38,6 +48,7 @@
             <span class="text-Green600medium ml-1">*</span>
           </label>
           <input type="text" id="last-name" class="rounded-lg py-2 px-1 w-100 outline outline-1 outline-Grey500medium hover:outline-Green600medium has-[:checked]:outline-Green600medium has-[:checked]:bg-Green200lighter">
+          <span id="error-last-name" class="hidden text-Red text-sm mt-1">This field is required</span>
         </div>
       </div>
       <div class="flex flex-col">
@@ -46,13 +57,14 @@
           <span class="text-Green600medium ml-1">*</span>
         </label>
         <input type="text" id="email" class="rounded-lg py-2 px-1 w-100 outline outline-1 outline-Grey500medium hover:outline-Green600medium has-[:checked]:outline-Green600medium has-[:checked]:bg-Green200lighter">
+        <span id="error-email" class="hidden text-Red text-sm mt-1"></span>
       </div>
       <div class="mt-4">
         <label>
           <span>Query Type</span>
           <span class="text-Green600medium ml-1">*</span>
         </label>
-        <div class="flex md:flex-row flex-col w-full mt-2">
+        <div class="flex md:flex-row flex-col w-full mt-2 mb-1">
           <label class="flex md:w-1/2 h-[50px] md:text-base text-sm my-1 md:mr-4 items-center px-6 rounded-lg outline outline-1 outline-Grey500medium hover:outline-Green600medium has-[:checked]:outline-Green600medium has-[:checked]:bg-Green200lighter">
             <input type="radio" id="general" name="query-type" value="general" class="w-5 h-5 accent-Green600medium outline-grey-600"/>
             <span class="ml-2">General Enquiry</span>
@@ -62,56 +74,29 @@
             <span class="ml-2">Support Request</span>
           </label>
         </div>
+        <span id="error-query" class="hidden text-Red text-sm">Please select a query type</span>
       </div>
       <div class="flex flex-col mt-4">
         <label for="message">
           <span>Message</span>
           <span class="text-Green600medium ml-1">*</span>
         </label>
-        <textarea id="message" class="md:min-h-[100px] mt-[10px] px-4 py-2 rounded-lg outline outline-1 outline-Grey500medium hover:outline-Green600medium focus:outline-Green600medium focus:invalid:outline-Red"></textarea>
+        <textarea id="message" class="md:min-h-[100px] min-h-[150px] mt-[10px] mb-1 px-4 py-2 rounded-lg outline outline-1 outline-Grey500medium hover:outline-Green600medium focus:outline-Green600medium focus:invalid:outline-Red"></textarea>
+        <span id="error-msg" class="hidden text-Red text-sm">This field is required</span>
       </div>
       <div class="mt-4">
-        <label class="flex md:items-center gap-4 px-1">
+        <label class="flex md:items-center gap-4 px-1 mb-1">
           <input id="consent" type="checkbox" class="w-5 h-5 accent-Green600medium md:w-4 md:h-4"/>
           <span>
-            <span>I consent to being contacted by the team</span>
+            <span class="md:text-base text-sm">I consent to being contacted by the team</span>
             <span class="text-Green600medium">*</span>
           </span>
         </label>
+        <span id="error-consent" class="hidden text-Red text-sm">To submit this form, please consent to being contacted</span>
       </div>
-      <button type="submit" class="w-full mt-4 h-[55px] text-lg rounded-lg bg-Green600medium text-white hover:bg-green-950 col-span-full">Submit</button>
+      <button type="submit" class="w-full mt-4 h-[55px] md:text-lg text-base transition-all duration-500 rounded-lg bg-Green600medium text-white hover:bg-Grey900darker col-span-full">Submit</button>
     </form>
   </main>
-
-  <!--
-  Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  -->
   <script src="assets/js/script.js"></script>
 </body>
 
